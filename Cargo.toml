@@ -1,0 +1,21 @@
+[package]
+name = "mips32"
+version = "0.1.0"
+authors = ["cc lw@mm.com"]
+edition = "2021"
+description = "low-level reg read/write for mips32"
+readme = "README.md"
+license = "MIT OR Apache-2.0"
+keywords = ["mips32", "embedded", "bare-metal"]
+repository = "https://github.com/anHappyDog/mips32"
+
+[dependencies]
+
+
+[lib]
+name = "mips32"
+path = "src/lib.rs"
+
+[build]
+target = "mipsel-unknown-none"
+
