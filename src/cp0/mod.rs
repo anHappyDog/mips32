@@ -12,14 +12,14 @@ macro_rules! DEFINE_CP0 {
             fn read() -> usize {
                 let _ret : usize;
                 unsafe {
-                    asm!(concat!("mfc0 $t0, ",$no),out("$8") _ret,options(nomem,nostack));
+                    asm!(concat!("mfc0 {}, ",$no),out(reg) _ret,options(nomem,nostack));
                 } 
                 _ret
             }
             #[inline(never)]
             fn write(val: usize) {
                 unsafe {
-                    asm!(concat!("mtc0 $t0, ",$no),in("$8") val,options(nomem,nostack));
+                    asm!(concat!("mtc0 {}, ",$no),in(reg) val,options(nomem,nostack));
                 }
             }
         }
@@ -31,13 +31,13 @@ macro_rules! DEFINE_CP0 {
             fn read() -> usize {
                 let _ret : usize;
                 unsafe {
-                    asm!(concat!("mfc0 $8, ",$no,", ",$str),out("$8") _ret);
+                    asm!(concat!("mfc0 {}, ",$no,", ",$str),out(reg) _ret);
                 } 
                 _ret
             }
             fn write(val: usize) {
                 unsafe {
-                    asm!(concat!("mtc0 $8, ",$no,", ",$str),in("$8") val);
+                    asm!(concat!("mtc0 {}, ",$no,", ",$str),in(reg) val);
                 }
             }
         }
