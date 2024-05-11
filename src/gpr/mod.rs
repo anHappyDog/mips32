@@ -10,14 +10,14 @@ macro_rules! DEFINE_GPR {
             fn read() -> usize {
                 let _ret : usize;
                 unsafe {
-                    asm!(concat!("add {}, ",$str,",$zero"),out(reg) _ret,options(nomem,nostack));
+                    asm!(concat!(".set noat\nadd {}, ",$str,",$zero\n.set at\n"),out(reg) _ret,options(nomem,nostack));
                 } 
                 _ret
             }
             #[inline(never)]
             fn write(val: usize) {
                 unsafe {
-                    asm!(concat!("add ",$str,",{}, $zero"),in(reg) val,options(nomem,nostack));
+                    asm!(concat!(".set noat\nadd ",$str,",{}, $zero\n.set at\n"),in(reg) val,options(nomem,nostack));
                 }
             }
         }
