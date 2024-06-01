@@ -4,9 +4,8 @@
 pub mod cp0;
 pub mod gpr;
 
-
 #[allow(dead_code)]
-trait Reg {
+pub trait Reg {
     fn read() -> usize;
     fn write(val: usize);
 }

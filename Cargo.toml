@@ -10,7 +10,7 @@ keywords = ["mips32", "embedded", "bare-metal"]
 repository = "https://github.com/anHappyDog/mips32"
 
 [dependencies]
-
+bitflags = "2.5.0"
 
 [lib]
 name = "mips32"
