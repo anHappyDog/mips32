@@ -1,6 +1,29 @@
 use core::arch::asm;
 use crate::Reg;
 
+pub const ST_CU0: usize = 1 << 28;
+pub const ST_IM: usize = 1 << 8;
+pub const ST_IE: usize = 1 << 0;
+pub const ST_BEV: usize = 1 << 22;
+pub const ST_EXL: usize = 1 << 1;
+pub const ST_ERL: usize = 1 << 2;
+pub const ST_KSU: usize = 3 << 3;
+pub const ST_KSU_USER: usize = 1 << 3;
+pub const ST_KSU_SUPER: usize = 2 << 3;
+pub const ST_KSU_KERNEL: usize = 0 << 3;
+pub const ST_UX: usize = 1 << 0;
+pub const ST_UX_SHIFT: usize = 0;
+pub const ST_UX_MASK: usize = 1 << 0;
+pub const ST_SX: usize = 1 << 1;
+
+pub const ST_IM7: usize = 1 << 15;
+pub const ST_IM6: usize = 1 << 14;
+pub const ST_IM5: usize = 1 << 13;
+pub const ST_IM4: usize = 1 << 12;
+pub const ST_IM3: usize = 1 << 11;
+pub const ST_IM2: usize = 1 << 10;
+pub const ST_IM1: usize = 1 << 9;
+pub const ST_IM0: usize = 1 << 8;
 
 
 macro_rules! DEFINE_CP0 {
