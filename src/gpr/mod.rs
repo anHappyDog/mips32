@@ -6,18 +6,18 @@ macro_rules! DEFINE_GPR {
         #[allow(non_camel_case_types)]
         pub struct $ident;
         impl Reg for $ident {
-            #[inline(never)]
+            #[inline(always)]
             fn read() -> usize {
                 let _ret : usize;
                 unsafe {
-                    asm!(concat!(".set noat\nadd {}, ",$str,",$zero\n.set at\n"),out(reg) _ret,options(nomem,nostack));
+                    asm!(concat!(".set noat\nmove {}, ",$str,"\n.set at\n"),out(reg) _ret,options(nomem,nostack));
                 } 
                 _ret
             }
-            #[inline(never)]
+            #[inline(always)]
             fn write(val: usize) {
                 unsafe {
-                    asm!(concat!(".set noat\nadd ",$str,",{}, $zero\n.set at\n"),in(reg) val,options(nomem,nostack));
+                    asm!(concat!(".set noat\nmove ",$str,",{}\n.set at\n"),in(reg) val,options(nomem,nostack));
                 }
             }
         }

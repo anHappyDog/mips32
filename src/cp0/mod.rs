@@ -6,6 +6,7 @@ pub const ST_IM: usize = 1 << 8;
 pub const ST_IE: usize = 1 << 0;
 pub const ST_BEV: usize = 1 << 22;
 pub const ST_EXL: usize = 1 << 1;
+pub const ST_UM: usize = 1 << 4;
 pub const ST_ERL: usize = 1 << 2;
 pub const ST_KSU: usize = 3 << 3;
 pub const ST_KSU_USER: usize = 1 << 3;
