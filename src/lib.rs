@@ -5,8 +5,9 @@
 pub mod cp0;
 pub mod gpr;
 pub mod tlb;
+pub mod int;
 
-use core::arch;
+
 
 #[allow(dead_code)]
 pub trait Reg {
